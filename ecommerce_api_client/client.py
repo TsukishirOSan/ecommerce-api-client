@@ -22,6 +22,7 @@ class EcommerceApiClient(slumber.API):
         if oauth_access_token:
             auth = BearerAuth(oauth_access_token)
         elif signing_key and username and email:
+            from pdb import set_trace; set_trace()
             auth = JwtAuth(username, full_name, email, signing_key, tracking_context)
         else:
             raise ValueError('Either JWT or OAuth2 credentials must be suppled for authentication!')
